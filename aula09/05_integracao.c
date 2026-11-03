@@ -13,6 +13,7 @@ void aplicarBonus(Equipe *alvo, int bonus) {
 
     /* TODO 5A: use o operador -> para somar
        bonus ao campo pontos do registro. */
+    alvo->pontos += bonus;
 }
 
 int main(void) {
@@ -24,6 +25,7 @@ int main(void) {
         /* TODO 5B: chame aplicarBonus com o
            endereco de equipe e o bonus da
            posicao i, acessado por ptrBonus. */
+        aplicarBonus(&equipe, *(ptrBonus + i));
     }
 
     printf("Equipe: %s\n", equipe.nome);

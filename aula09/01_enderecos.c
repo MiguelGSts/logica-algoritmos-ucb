@@ -8,6 +8,7 @@ int main(void) {
 
     /* TODO 1: altere pontos para 18 usando ptr. */
 
+    *ptr += 6;
     printf("Depois: %d\n", pontos);
     printf("Via ponteiro: %d\n", *ptr);
     printf("Endereco: %p\n", (void *)&pontos);

@@ -7,6 +7,8 @@ void adicionarPorValor(int pontos, int bonus) {
 
 void adicionarPorEndereco(int *pontos, int bonus) {
     /* TODO 2: acrescente bonus ao objeto apontado. */
+    *pontos += bonus;
+    printf("Dentro da funcao por endereco: %d\n", *pontos);
 }
 
 int main(void) {
