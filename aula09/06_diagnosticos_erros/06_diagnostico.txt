@@ -1,31 +1,31 @@
 MISSÃO 06 | DIAGNÓSTICO DE ERROS
 
 Caso A
-Expressão problemática:
-Classificação:
-Correção proposta:
-Justificativa:
+Expressão problemática: Ausência de associação de endereção ao ponteiro
+Classificação: Inicialização
+Correção proposta: Criar variável `int x = 0;` e associar ao ponteiro por meio de `*ptr = &x;`
+Justificativa: O ponteiro estará apontando a um endereço válido antes do desreferenciamento.
 
 Caso B
-Expressão problemática:
-Classificação:
-Correção proposta:
-Justificativa:
+Expressão problemática: int *ptr = NULL;
+Classificação: Valor nulo
+Correção proposta: Apontar o ponteiro à um espaço na memória válido, como uma variável x = 10.
+Justificativa: Um ponteiro que aponta para um expaço na memória ausente causa comportamento indefinido.
 
 Caso C
-Expressão problemática:
-Classificação:
-Correção proposta:
-Justificativa:
+Expressão problemática: int *ptr = &taxa;
+Classificação: Tipo
+Correção proposta: Alterar o tipo do ponteiro para float.
+Justificativa: O ponteiro terá o mesmo tipo de dado que o objeto apontado.
 
 Caso D
-Expressão problemática:
-Classificação:
-Correção proposta:
-Justificativa:
+Expressão problemática: printf("%d\n", *(ptr + 3));
+Classificação: Limite
+Correção proposta: Troca do chamado do ponteiro ptr para `*(ptr + 2)`
+Justificativa: Para acessar o terceiro elemento do vetor, o índice é (3-1), logo, índice 2.
 
 Caso E
-Expressão problemática:
-Classificação:
-Correção proposta:
-Justificativa:
+Expressão problemática: ptr.pontos
+Classificação: Operador
+Correção proposta: Uso do operador -> entre ptr e pontos
+Justificativa: -> deve ser usado quando é um ponteiro apontando para um estrutura.
