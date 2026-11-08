@@ -16,11 +16,16 @@ int main(void) {
     size_t quantidade = 3;
     const int valores_iniciais[] = {12, 20, 18};
 
-    int *pontos = malloc(capacidade * sizeof *pontos);
+    int *pontos = calloc(capacidade, sizeof *pontos);
     if (pontos == NULL) {
         fprintf(stderr, "Falha ao reservar memoria para o placar.\n");
         return EXIT_FAILURE;
     }
+
+    for(size_t indice = 0; indice < quantidade; indice++){
+        printf("%d ", pontos[indice]);
+    }
+    printf("\n");
 
     for (size_t indice = 0; indice < quantidade; indice++) {
         pontos[indice] = valores_iniciais[indice];
@@ -31,6 +36,8 @@ int main(void) {
 
     /* TODO - MISSAO 1:
        Explique o calculo de bytes em malloc.
+        Resposta: O calculo de bytes e feito por meio da quantidade de elementos multiplicada pelo tamanho em bytes de cada elementos.
+        Logo: malloc(capacidade * sizeof *pontos) resulta em 3 * 4 = 12 bytes.
        Experimente calloc no lugar de malloc e observe quando os valores sao zero.
        Mantenha sempre a verificacao do retorno e a inicializacao dos dados. */
 
@@ -40,6 +47,23 @@ int main(void) {
        3. Atualize capacidade apenas depois do sucesso.
        4. Preencha as duas posicoes novas com 25 e 17.
        5. Atualize quantidade e mostre o placar completo. */
+
+    size_t novaQuantidade = 5;
+    int *temporario = realloc(pontos, novaQuantidade * sizeof *pontos);
+    if(temporario == NULL) {
+        fprintf(stderr, "Falha ao reservar memoria para o novo placar.\n");
+        return EXIT_FAILURE;
+    }else{
+        pontos = temporario;
+        capacidade = 5;
+
+        pontos[3] = 25;
+        pontos[4] = 17;
+        quantidade = novaQuantidade;
+        puts("\nNovo placar:");
+        mostrar_placar(pontos, quantidade);
+    }
+
 
     free(pontos);
     pontos = NULL;

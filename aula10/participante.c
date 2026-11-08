@@ -26,7 +26,28 @@ int main(void) {
        Para conferir a solução, a saida esperada e:
        101 | Marina | 27 pontos */
 
-    puts("Complete o cadastro dinamico nesta missao.");
+    Participante *participante = malloc(sizeof(Participante));
+    if(participante == NULL){
+        fprintf(stderr, "Falha ao reservar memoria para o participante.\n");
+        return EXIT_FAILURE;
+    }
+
+    participante->nome = malloc(strlen(nome_origem) + 1 * sizeof(char));
+    if(participante->nome == NULL){
+        fprintf(stderr, "Falha ao reservar memoria para o nome do participante.\n");
+        return 1;
+    }else{
+        strcpy(participante->nome, nome_origem);
+        participante->codigo = 101;
+        participante->pontos = 27;
+
+        printf("== Participante ==\n");
+        printf("%d | %s | %d\n", participante->codigo, participante->nome, participante->pontos);
+    }
+    free(participante->nome);
+    free(participante);
+    participante = NULL;
+
     (void)nome_origem;
     return EXIT_SUCCESS;
 }
